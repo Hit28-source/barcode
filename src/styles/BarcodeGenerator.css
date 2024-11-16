@@ -1,0 +1,209 @@
+.barcode-generator {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    
+}
+
+.generator-container {
+    display: flex;
+    flex-grow: 1;
+    gap: 200px;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.generator-form {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 0 auto;
+    
+}
+
+.generator-form fieldset {
+    margin-bottom: 20px;
+    border: 1px solid #EFF2F5;
+    border-radius: 4px;
+    padding: 15px;
+    padding-right: 450px;
+    background-color: EFF2F5;
+
+}
+
+.generator-form legend {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    padding-right: 40px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-left: 50px;
+    width: 700px    
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    
+    
+}
+
+.form-input.error {
+    border-color: #dc3545;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+.generate-button {
+    width: 100%;
+    padding: 20px;
+    font-size: 20px;
+    color: white;
+    background-color: #2c5884;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+ 
+}
+.qr-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+    background-color: #f8f9fa;
+    border: 2px dashed #ced4da;
+    border-radius: 8px;
+    color: #6c757d;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    margin : 100px
+}
+
+.qr-placeholder:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.qr-placeholder-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.qr-placeholder-text {
+    max-width: 80%;
+}
+
+.generate-button:hover {
+    background-color: #2554ab;
+}
+
+.qr-code-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #671414;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: fit-content;
+}
+
+.save-button,
+.clear-button {
+    flex: 0 1 120px;
+    margin-top: 20px;
+    /* Changed from flex: 1 to flex: 0 1 120px */
+    height: 40px;
+    padding: 0 20px;
+    font-size: 14px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.save-button {
+    background-color: #28a745;
+}
+
+.save-button:hover {
+    background-color: #218838;
+}
+
+.clear-button {
+    background-color: #dc3545;
+}
+
+.clear-button:hover {
+    background-color: #c82333;
+}
+
+.save-button:active,
+.clear-button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+    .generator-container {
+        flex-direction: column;
+    }
+
+    .generator-form,
+    .qr-code-container {
+        width: 100%;
+    }
+}

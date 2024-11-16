@@ -1,0 +1,337 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --background-color: #f0f2f5;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --border-radius: 8px;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    padding: 100px;
+    box-sizing: border-box;
+}
+
+.qr-scanner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.scanner-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.scanner-button {
+    flex: 1;
+    padding: 12px 20px;
+    margin: 0 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.scanner-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scanner-button.active {
+    background-color: var(--secondary-color);
+}
+
+.scanner-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.file-upload {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.upload-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.file-upload p {
+    margin: 10px 0;
+}
+
+.device-form {
+    flex: 1;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.form-header {
+    margin-bottom: 300px;
+}
+
+.form-header h2 {
+    margin: 0;
+    color: var(--secondary-color);
+    font-size: 24px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.form-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-section h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.25);
+}
+
+.clear-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 60px;
+}
+
+.clear-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.file-upload {
+    /* ... existing styles */
+    transition: all 0.3s ease;
+}
+.live-scanner-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    /* Creates a 1:1 aspect ratio */
+    overflow: hidden;
+}
+.live-scanner-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    /* 1:1 Aspect ratio */
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.qr-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.scanner-frame {
+    width: 80%;
+    height: 80%;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+}
+
+.scanner-frame.success {
+    border-color: #4CAF50;
+}
+
+.qr-reader {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    
+}
+
+.scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.scanner-frame {
+    width: 80%;
+    height: 80%;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+}
+
+.scanner-frame.success {
+    border-color: #4CAF50;
+}
+.file-upload {
+    width: 100%;
+    height: 400px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: auto;
+    padding: 450px;
+    text-align: center;
+}
+
+.file-upload:hover,
+.file-upload.dragging {
+    border-color: #007bff;
+    background-color: #f0f5f1;
+}
+
+.upload-icon {
+    font-size: 64px;
+    color: #869eb7;
+    margin-bottom: 24px;
+}
+
+.upload-text {
+    text-align: center;
+    color: #333;
+    margin-top: 16px;
+}
+
+.upload-text p {
+    font-size: 18px;
+    margin: 4px 0;
+}
+
+.upload-text small {
+    color: #666;
+    font-size: 14px;
+    /* Increased font size */
+}
+.file-input {
+    display: none;
+}
+/* ... other styles ... */
+
+.file-upload.dragging {
+    background-color: #e8f4fc;
+    border-color: #3498db;
+}
+
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .qr-scanner,
+    .device-form {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .scanner-container {
+        height: 300px;
+    }
+}
